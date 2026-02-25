@@ -1,0 +1,1601 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-main: #0f172a;
+        --bg-about: #f6f7fb;
+        --bg-journeys: #ecfeff;
+        --bg-results: #eefbf3;
+        --bg-cources: #fff8eb;
+        --bg-register: #f5f3ff;
+        --bg-contact: #fef2f2;
+        --ink-dark: #0b1220;
+        --ink-light: #f8fafc;
+        --accent: #f97316;
+        --accent-soft: #fb923c;
+        --shadow: 0 18px 45px rgba(9, 14, 27, 0.14);
+        --radius: 20px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Manrope", sans-serif;
+        color: var(--ink-dark);
+        background: linear-gradient(
+          130deg,
+          #0f172a 0%,
+          #111827 60%,
+          #0b1326 100%
+        );
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      .brand {
+        font-family: "Space Grotesk", sans-serif;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      .container {
+        width: min(1100px, 92%);
+        margin: 0 auto;
+      }
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+        background: rgba(15, 23, 42, 0.78);
+        border-bottom: 1px solid rgba(248, 250, 252, 0.16);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 72px;
+        flex-wrap: wrap;
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      .brand {
+        color: var(--ink-light);
+        font-size: 1.35rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        color: #dbeafe;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.35rem 0.55rem;
+        border-radius: 8px;
+        transition: 0.25s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus {
+        color: #fff;
+        background: rgba(249, 115, 22, 0.25);
+        outline: none;
+      }
+
+      .nav-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(248, 250, 252, 0.28);
+        border-radius: 10px;
+        background: rgba(15, 23, 42, 0.45);
+        color: #f8fafc;
+        cursor: pointer;
+      }
+
+      .nav-toggle svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      section {
+        padding: 84px 0;
+      }
+
+      .section-title {
+        margin-bottom: 0.75rem;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+      }
+
+      .section-subtitle {
+        margin-bottom: 2rem;
+        max-width: 65ch;
+        color: #334155;
+      }
+
+      .hero {
+        min-height: 88vh;
+        display: grid;
+        place-items: center;
+        color: var(--ink-light);
+      }
+
+      .hero-grid {
+        width: min(1120px, 94%);
+        margin: 0 auto;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1.618fr 1fr;
+        grid-template-areas: "intro person";
+        align-items: stretch;
+      }
+
+      .panel {
+        border-radius: var(--radius);
+        padding: 1.6rem;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .intro {
+        grid-area: intro;
+      }
+      .person-box {
+        grid-area: person;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        color: #dbeafe;
+        max-width: 52ch;
+      }
+
+      .cta {
+        margin-top: 1.5rem;
+        display: inline-block;
+        background: linear-gradient(
+          130deg,
+          var(--accent) 0%,
+          var(--accent-soft) 100%
+        );
+        color: #111827;
+        text-decoration: none;
+        font-weight: 800;
+        border-radius: 12px;
+        padding: 0.8rem 1.15rem;
+      }
+
+      .metric {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.8rem;
+        padding: 0.55rem 0;
+        border-bottom: 1px dashed rgba(248, 250, 252, 0.2);
+      }
+
+      .metric:last-child {
+        border-bottom: none;
+      }
+
+      .metric strong {
+        font-size: 1.12rem;
+      }
+
+      .person-box {
+        position: relative;
+        min-height: 460px;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .person-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .person-label {
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+        background: rgba(15, 23, 42, 0.72);
+        color: #fff;
+        padding: 0.65rem 0.85rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        font-weight: 600;
+      }
+
+      .about {
+        background: var(--bg-about);
+      }
+      .journeys {
+        background: var(--bg-journeys);
+      }
+      .results {
+        background: var(--bg-results);
+      }
+      .cources {
+        background: var(--bg-cources);
+      }
+      .register {
+        background: var(--bg-register);
+      }
+      .contact {
+        background: var(--bg-contact);
+      }
+
+      .grid-2 {
+        display: grid;
+        gap: 1.2rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        box-shadow: 0 10px 30px rgba(2, 8, 23, 0.08);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+      }
+
+      .courses-grid {
+        display: grid;
+        gap: 1.2rem;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .course-card {
+        grid-column: span 2;
+        border-radius: 18px;
+        padding: 1.25rem;
+        box-shadow: 0 12px 28px rgba(2, 8, 23, 0.1);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        cursor: pointer;
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          filter 220ms ease;
+      }
+
+      .course-card:nth-child(4),
+      .course-card:nth-child(5) {
+        grid-column: span 3;
+      }
+
+      .course-card h3 {
+        margin-bottom: 0.4rem;
+      }
+
+      .course-card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 18px 36px rgba(2, 8, 23, 0.18);
+        filter: saturate(1.03);
+      }
+
+      .course-a1 {
+        background: #dff7e8;
+      }
+
+      .course-a2 {
+        background: #cfeedd;
+      }
+
+      .course-a2plus {
+        background: #f8efc4;
+      }
+
+      .course-b1 {
+        background: #ffe3ad;
+      }
+
+      .course-speaking {
+        background: #ffd4a8;
+      }
+
+      .journey-carousel {
+        position: relative;
+        width: min(960px, 90%);
+        margin: 0 auto;
+      }
+
+      .carousel-track {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(2, 8, 23, 0.09);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        min-height: 560px;
+      }
+
+      .results .journey-carousel {
+        width: min(900px, 86%);
+      }
+
+      .carousel-slide {
+        display: none;
+        position: absolute;
+        inset: 0;
+      }
+
+      .carousel-slide.active {
+        display: block;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .slide-caption {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        background: rgba(3, 7, 18, 0.72);
+        color: #f8fafc;
+        padding: 0.85rem 0.95rem;
+        border-radius: 12px;
+        font-weight: 600;
+      }
+
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: none;
+        background: rgba(2, 8, 23, 0.72);
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .carousel-btn:hover {
+        background: rgba(2, 8, 23, 0.9);
+      }
+
+      .carousel-btn.prev {
+        left: 0.8rem;
+      }
+
+      .carousel-btn.next {
+        right: 0.8rem;
+      }
+
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.45rem;
+        margin-top: 0.9rem;
+      }
+
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        border: none;
+        background: #94a3b8;
+        cursor: pointer;
+      }
+
+      .carousel-dot.active {
+        background: #0ea5e9;
+      }
+
+      .journey-notes {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .journey-notes p {
+        background: #fff;
+        border-left: 4px solid #06b6d4;
+        border-radius: 12px;
+        padding: 0.85rem 1rem;
+        box-shadow: 0 8px 26px rgba(12, 74, 110, 0.08);
+      }
+
+      .results-wrap {
+        background: #d6d6d6;
+        border-radius: 18px;
+        padding: 18px 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        cursor: grab;
+        user-select: none;
+        touch-action: pan-y;
+        scroll-behavior: smooth;
+        --swipe-shift: 0px;
+      }
+
+      .ticker-swiper {
+        width: 100%;
+        background: #bfbfbf;
+        border-radius: 20px;
+        padding: 16px 8px;
+      }
+
+      .results-wrap.dragging {
+        cursor: grabbing;
+      }
+
+      .results-wrap::-webkit-scrollbar {
+        height: 10px;
+      }
+
+      .results-wrap::-webkit-scrollbar-thumb {
+        background: #b3b3b3;
+        border-radius: 999px;
+      }
+
+      .results-track {
+        display: flex;
+        gap: 26px;
+        min-width: max-content;
+        padding: 0 10px;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        gap: 26px;
+        min-width: max-content;
+        padding: 0 10px;
+      }
+
+      .cert-item {
+        width: 350px;
+        flex: 0 0 auto;
+        background: #f5f5f5;
+        border-radius: 34px;
+        padding: 12px;
+        scroll-snap-align: center;
+        transition:
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 360ms ease,
+          filter 360ms ease;
+        transform: scale(0.97);
+        opacity: 1;
+        filter: none;
+      }
+
+      .swiper-slide.swiper-result {
+        width: 350px;
+        flex: 0 0 auto;
+        background: #efefef;
+        border-radius: 34px;
+        padding: 12px;
+        scroll-snap-align: center;
+        transition:
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 360ms ease;
+        transform: scale(0.97);
+        will-change: transform;
+      }
+
+      .swiper-slide.swiper-result.is-active {
+        transform: scale(1);
+      }
+
+      .cert-item.is-active {
+        transform: scale(1);
+        opacity: 1;
+        filter: none;
+      }
+
+      .results-wrap.dragging .cert-item {
+        transition-duration: 140ms;
+      }
+
+      .results-wrap.dragging .swiper-slide.swiper-result {
+        transform: translateX(calc(var(--swipe-shift) * 0.08)) scale(0.985)
+          translateY(-6px);
+      }
+
+      .results-wrap.dragging .swiper-slide.swiper-result.is-active {
+        transform: translateX(calc(var(--swipe-shift) * 0.16)) scale(1.02)
+          translateY(-10px);
+      }
+
+      .results-wrap.dragging .swiper-slide.swiper-result:not(.is-active) {
+        opacity: 0.9;
+      }
+
+      .cert-item.pop-in {
+        animation: certPop 360ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+
+      @keyframes certPop {
+        0% {
+          transform: scale(0.94);
+        }
+        55% {
+          transform: scale(1.03);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .cert-media {
+        position: relative;
+        overflow: hidden;
+        border-radius: 26px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        height: 500px;
+      }
+
+      .student__fullname {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px 8px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        color: #0f172a;
+        z-index: 2;
+        gap: 4px;
+      }
+
+      .student__lastname {
+        font-weight: 700;
+      }
+
+      .cert-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .result-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .cert-name {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 14px;
+        background: #fff;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px 8px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.05rem;
+        color: #0f172a;
+      }
+
+      .results-list {
+        list-style: none;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .results-list li {
+        background: #fff;
+        border-radius: 12px;
+        padding: 0.95rem;
+        border-left: 4px solid #16a34a;
+        box-shadow: 0 8px 24px rgba(22, 163, 74, 0.09);
+      }
+
+      form {
+        display: grid;
+        gap: 0.9rem;
+        max-width: 680px;
+      }
+
+      .register-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1.2rem;
+        align-items: start;
+      }
+
+      .register-layout form {
+        max-width: none;
+      }
+
+      .register-side {
+        display: grid;
+        gap: 1rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        padding: 0.8rem 0.9rem;
+        font: inherit;
+        background: #fff;
+      }
+
+      button {
+        width: fit-content;
+        border: none;
+        border-radius: 10px;
+        background: #7c3aed;
+        color: #fff;
+        padding: 0.75rem 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .nav-toggle {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 1px solid rgba(248, 250, 252, 0.28);
+        border-radius: 10px;
+        background: rgba(15, 23, 42, 0.45);
+        color: #f8fafc;
+      }
+
+      .contact-panel {
+        margin-top: 1.2rem;
+        max-width: 680px;
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 14px;
+        padding: 1rem;
+        box-shadow: 0 10px 24px rgba(2, 8, 23, 0.08);
+      }
+
+      .contact-panel h3 {
+        margin-bottom: 0.55rem;
+      }
+
+      .contact-phone {
+        margin-bottom: 0.8rem;
+        font-weight: 700;
+      }
+
+      .contact-phone a {
+        color: #1d4ed8;
+        text-decoration: none;
+      }
+
+      .contact-phone a:hover {
+        text-decoration: underline;
+      }
+
+      .social-links {
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .social-link-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        text-decoration: none;
+        color: #0f172a;
+        background: #e2e8f0;
+        border: 1px solid #cbd5e1;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(15, 23, 42, 0.15);
+      }
+
+      .social-links svg {
+        width: 22px;
+        height: 22px;
+        fill: currentColor;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        white-space: nowrap;
+      }
+
+      .social-text {
+        color: #0f172a;
+        font-weight: 700;
+      }
+
+      .social-handle {
+        color: #334155;
+        font-size: 0.95rem;
+      }
+
+      .map-panel {
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 14px;
+        padding: 1rem;
+        box-shadow: 0 10px 24px rgba(2, 8, 23, 0.08);
+      }
+
+      .map-panel h3 {
+        margin-bottom: 0.55rem;
+      }
+
+      .map-frame {
+        width: 100%;
+        height: 260px;
+        border: 0;
+        border-radius: 10px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2.2rem 0 2.6rem;
+        color: #cbd5e1;
+        background: #0b1120;
+      }
+
+      @media (max-width: 900px) {
+        section {
+          padding: 68px 0;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+          grid-template-areas:
+            "intro"
+            "person";
+        }
+
+        .nav-inner {
+          flex-wrap: nowrap;
+          min-height: 64px;
+        }
+
+        .nav-toggle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          left: 4%;
+          right: 4%;
+          top: calc(100% + 8px);
+          padding: 0.75rem;
+          border-radius: 12px;
+          background: rgba(15, 23, 42, 0.96);
+          border: 1px solid rgba(248, 250, 252, 0.16);
+          box-shadow: 0 12px 24px rgba(2, 8, 23, 0.32);
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.4rem;
+          z-index: 20;
+        }
+
+        .nav-links.is-open {
+          display: flex;
+        }
+
+        .nav-links a {
+          display: block;
+          padding: 0.6rem 0.7rem;
+        }
+
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+
+        .courses-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .register-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .course-card,
+        .course-card:nth-child(4),
+        .course-card:nth-child(5) {
+          grid-column: auto;
+        }
+
+        .person-box {
+          min-height: 340px;
+        }
+
+        .carousel-track {
+          min-height: 340px;
+        }
+
+        .cert-item {
+          width: 290px;
+        }
+
+        .swiper-slide.swiper-result {
+          width: 290px;
+        }
+
+        .cert-media {
+          height: 430px;
+        }
+
+        .social-link-item {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          width: min(1100px, 94%);
+        }
+
+        .panel {
+          padding: 1.2rem;
+        }
+
+        .hero {
+          min-height: 82vh;
+        }
+
+        .carousel-track {
+          min-height: 300px;
+        }
+
+        .slide-caption {
+          font-size: 0.92rem;
+          padding: 0.7rem 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a href="#top" class="brand">Saburjon Atanazarov</a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="primary-menu"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 6h16a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2z"
+            />
+          </svg>
+        </button>
+        <ul class="nav-links" id="primary-menu">
+          <li><a href="#about">About me</a></li>
+          <li><a href="#journeys">Journeys</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#cources">Courses</a></li>
+          <li><a href="#register">Register</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header id="top" class="hero">
+      <div class="hero-grid">
+        <article class="panel intro">
+          <h1>Designing Career Growth With Clarity and Measurable Impact</h1>
+          <p>
+            I help students and professionals convert ambition into structured
+            progress through modern learning systems, guided projects, and
+            personal mentorship.
+          </p>
+          <a class="cta" href="#register">Start Your Journey</a>
+        </article>
+
+        <aside class="panel person-box">
+          <img
+            src="img/aboutmepictureteacher.jpg"
+            alt="Portrait of Saburjon Atanazarov"
+          />
+          <div class="person-label">Saburjon Atanazarov | English Teacher</div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          A strategic mentor focused on product mindset, communication, and
+          practical execution.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Who I Am</h3>
+            <p>
+              I am Saburjon, a portfolio coach and educator with 8+ years
+              guiding individuals from beginner stage to confident performers.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Core Strengths</h3>
+            <p>
+              Personalized roadmap planning, hands-on project feedback,
+              interview readiness, and building visible outcomes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journeys" class="journeys">
+      <div class="container">
+        <h2 class="section-title">Journeys</h2>
+        <p class="section-subtitle">
+          Key moments captured in images. Use the carousel to view each stage.
+        </p>
+        <div
+          class="journey-carousel carousel"
+          aria-label="Journey image carousel"
+        >
+          <div class="carousel-track">
+            <button
+              class="carousel-btn prev"
+              type="button"
+              aria-label="Previous journey image"
+            >
+              &#10094;
+            </button>
+
+            <article class="carousel-slide active">
+              <img
+                src="img/journey/gettyimages-1277179412-612x612.jpg"
+                alt="Early mentoring session in 2017"
+              />
+              <p class="slide-caption">France</p>
+            </article>
+
+            <article class="carousel-slide">
+              <img
+                src="img/journey/journeys_barcelona_uqs7t1.jfif"
+                alt="Online coaching expansion in 2020"
+              />
+              <p class="slide-caption">Paris - France</p>
+            </article>
+
+            <article class="carousel-slide">
+              <img
+                src="img/journey/journeys_paris_zvsksm.jfif"
+                alt="Structured transformation program in 2023"
+              />
+              <p class="slide-caption">Barcelona - Spain</p>
+            </article>
+
+            <article class="carousel-slide">
+              <img
+                src="img/journey/journeys_slovakia_le23zf.jfif"
+                alt="Structured transformation program in 2023"
+              />
+              <p class="slide-caption">Slovakia</p>
+            </article>
+
+            <button
+              class="carousel-btn next"
+              type="button"
+              aria-label="Next journey image"
+            >
+              &#10095;
+            </button>
+          </div>
+          <div class="carousel-dots" aria-label="Carousel indicators">
+            <button
+              type="button"
+              class="carousel-dot active"
+              aria-label="Go to slide 1"
+            ></button>
+            <button
+              type="button"
+              class="carousel-dot"
+              aria-label="Go to slide 2"
+            ></button>
+            <button
+              type="button"
+              class="carousel-dot"
+              aria-label="Go to slide 3"
+            ></button>
+            <button
+              type="button"
+              class="carousel-dot"
+              aria-label="Go to slide 4"
+            ></button>
+          </div>
+        </div>
+        <div class="journey-notes">
+          <p>
+            <strong></strong> Paris (French: Paris) is the capital of France and
+            the largest city by population. As of 2019, the city has a
+            population of 2,165,423 people. With an area of 105 km², it is the
+            34th most densely populated city in the world (2020). Since the 17th
+            century, Paris has been one of the world's largest financial,
+            diplomatic, trade, and fashion centers.
+          </p>
+          <p>
+            <strong></strong> France (French: France), officially the French
+            Republic. A country in Western Europe. Bordered by the Atlantic
+            Ocean and the English Channel to the west and north, and the
+            Mediterranean Sea to the south. Area - 674,687 km². Population -
+            66,561,000 people (2024). Capital – Paris.
+          </p>
+          <p>
+            <strong></strong> Paris (French: Paris) is the capital of France and
+            the largest city by population. As of 2019, the city has a
+            population of 2,165,423 people. With an area of 105 km², it is the
+            34th most densely populated city in the world (2020). Since the 17th
+            century, Paris has been one of the world's largest financial,
+            diplomatic, trade, and fashion centers.
+          </p>
+          <p>
+            <strong></strong> Slovakia is a republic. The current constitution
+            was adopted on September 1, 1992 (with amendments in 1999). The head
+            of state is the president (since 2019, Zuzana Čaputová), who is
+            elected for a 5-year term by secret ballot on the basis of universal
+            and equal voting rights.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="results">
+      <div class="container">
+        <h2 class="section-title">Results</h2>
+        <div
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="800"
+          data-aos-offset="20"
+          data-aos-easing="ease-in-out"
+          class="results-wrap swiper ticker-swiper swiper-horizontal"
+        >
+          <div
+            class="results-track swiper-wrapper"
+            id="certificateContainer"
+            aria-live="off"
+          >
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/1.jpg"
+                  alt="student 1 result"
+                />
+              </div>
+            </div>
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/2.jpg"
+                  alt="student 2 result"
+                />
+              </div>
+            </div>
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/3.jpg"
+                  alt="student 3 result"
+                />
+              </div>
+            </div>
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/4.jpg"
+                  alt="student 4 result"
+                />
+              </div>
+            </div>
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/5.jpg"
+                  alt="student 5 result"
+                />
+              </div>
+            </div>
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/6.jpg"
+                  alt="student 6 result"
+                />
+              </div>
+            </div>
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/7.jpg"
+                  alt="student 7 result"
+                />
+              </div>
+            </div>
+            <div class="cert-item swiper-slide swiper-result">
+              <div class="cert-media">
+                <img
+                  class="result-img"
+                  src="img/cert/8.jpg"
+                  alt="student 8 result"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cources" class="cources">
+      <div class="container">
+        <h2 class="section-title">Courses</h2>
+        <p class="section-subtitle">
+          Outcome-oriented modules designed for practical growth.
+        </p>
+        <div class="courses-grid">
+          <article class="course-card course-a1">
+            <h3>A1 Beginner</h3>
+            <p>English course for complete beginners.</p>
+          </article>
+          <article class="course-card course-a2">
+            <h3>A2 Elementary</h3>
+            <p>English course for students above A1 level.</p>
+          </article>
+          <article class="course-card course-a2plus">
+            <h3>A2+ Pre-Intermediate</h3>
+            <p>Preparation stage for lower-intermediate learners.</p>
+          </article>
+          <article class="course-card course-b1">
+            <h3>B1 Intermediate</h3>
+            <p>English course for students above A2+ level.</p>
+          </article>
+          <article class="course-card course-speaking">
+            <h3>Speaking Club</h3>
+            <p>Speaking, Vocabulary, Grammar, Listening, Reading, Writing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="register" class="register">
+      <div class="container">
+        <h2 class="section-title">Register & Contact</h2>
+        <p class="section-subtitle">
+          Apply for the next cohort or send a direct message for collaboration.
+        </p>
+        <div class="register-layout">
+          <form>
+            <input type="text" placeholder="Full name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="text" placeholder="Goal in one line" required />
+            <textarea rows="5" placeholder="Your message" required></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          <div class="register-side">
+            <div class="contact-panel">
+              <h3>Direct Contact</h3>
+              <p class="contact-phone">
+                Phone: <a href="tel:+998991738999">+998 99 173 89 99</a>
+              </p>
+              <div class="social-links" aria-label="Social media links">
+                <div class="social-link-item">
+                  <a
+                    href="https://t.me/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Telegram Personal"
+                    title="Telegram Personal"
+                  >
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        d="M16 1.2a1 1 0 0 0-1.37-.93L.8 6.24a1 1 0 0 0 .06 1.87l3.5 1.24 1.35 4.4a1 1 0 0 0 1.74.34l2.03-2.66 3.33 2.48a1 1 0 0 0 1.56-.6L16 1.2zM5.1 8.9l7.68-5.02-6.36 6.2-.25 2.53-1.07-3.7z"
+                      />
+                    </svg>
+                    <span class="sr-only">Telegram Personal</span>
+                  </a>
+                  <span class="social-text">Contact on Telegram:</span>
+                  <span class="social-handle">@SABIROFF</span>
+                </div>
+                <div class="social-link-item">
+                  <a
+                    href="https://t.me/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Telegram Channel"
+                    title="Telegram Channel"
+                  >
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        d="M16 1.2a1 1 0 0 0-1.37-.93L.8 6.24a1 1 0 0 0 .06 1.87l3.5 1.24 1.35 4.4a1 1 0 0 0 1.74.34l2.03-2.66 3.33 2.48a1 1 0 0 0 1.56-.6L16 1.2zM5.1 8.9l7.68-5.02-6.36 6.2-.25 2.53-1.07-3.7z"
+                      />
+                    </svg>
+                    <span class="sr-only">Telegram Channel</span>
+                  </a>
+                  <span class="social-text">Channel:</span>
+                  <span class="social-handle">@sabiroff_english</span>
+                </div>
+                <div class="social-link-item">
+                  <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                  >
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        d="M8 3.9A4.1 4.1 0 1 0 8 12a4.1 4.1 0 0 0 0-8.1zm0 6.7a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"
+                      />
+                      <path
+                        d="M12.3 0H3.7A3.7 3.7 0 0 0 0 3.7v8.6A3.7 3.7 0 0 0 3.7 16h8.6a3.7 3.7 0 0 0 3.7-3.7V3.7A3.7 3.7 0 0 0 12.3 0zm2.2 12.3a2.2 2.2 0 0 1-2.2 2.2H3.7a2.2 2.2 0 0 1-2.2-2.2V3.7a2.2 2.2 0 0 1 2.2-2.2h8.6a2.2 2.2 0 0 1 2.2 2.2v8.6z"
+                      />
+                      <circle cx="12.2" cy="3.8" r="1" />
+                    </svg>
+                    <span class="sr-only">Instagram</span>
+                  </a>
+                  <span class="social-text">Instagram:</span>
+                  <span class="social-handle">@sabiroff_english</span>
+                </div>
+              </div>
+            </div>
+            <div class="map-panel">
+              <h3>Our Location</h3>
+              <iframe
+                class="map-frame"
+                title="Google Map location"
+                src="https://maps.app.goo.gl/syULA1RpDAtdadVf9"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Saburjon Atanazarov. All rights reserved.</p>
+      <p>Designed and Developed by Rembo</p>
+    </footer>
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const navAnchors = document.querySelectorAll(".nav-links a");
+
+      function closeMobileMenu() {
+        navLinks.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navLinks.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        navAnchors.forEach((anchor) => {
+          anchor.addEventListener("click", closeMobileMenu);
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 900) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      document.querySelectorAll("img").forEach((img) => {
+        if (!img.closest(".hero")) {
+          img.loading = "lazy";
+        }
+        img.decoding = "async";
+      });
+
+      function setupCarousel(root) {
+        const slides = root.querySelectorAll(".carousel-slide");
+        const dots = root.querySelectorAll(".carousel-dot");
+        const prevBtn = root.querySelector(".carousel-btn.prev");
+        const nextBtn = root.querySelector(".carousel-btn.next");
+        const track = root.querySelector(".carousel-track");
+        let currentSlide = 0;
+        let autoPlay;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function showSlide(index) {
+          const total = slides.length;
+          currentSlide = (index + total) % total;
+          slides.forEach((slide, i) =>
+            slide.classList.toggle("active", i === currentSlide),
+          );
+          dots.forEach((dot, i) =>
+            dot.classList.toggle("active", i === currentSlide),
+          );
+        }
+
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+        }
+
+        function startAutoplay() {
+          autoPlay = setInterval(nextSlide, 4200);
+        }
+
+        function resetAutoplay() {
+          clearInterval(autoPlay);
+          startAutoplay();
+        }
+
+        prevBtn.addEventListener("click", () => {
+          showSlide(currentSlide - 1);
+          resetAutoplay();
+        });
+
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
+          resetAutoplay();
+        });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            showSlide(index);
+            resetAutoplay();
+          });
+        });
+
+        track.addEventListener(
+          "touchstart",
+          (event) => {
+            touchStartX = event.changedTouches[0].clientX;
+          },
+          { passive: true },
+        );
+
+        track.addEventListener(
+          "touchend",
+          (event) => {
+            touchEndX = event.changedTouches[0].clientX;
+            const distance = touchEndX - touchStartX;
+            if (Math.abs(distance) < 35) {
+              return;
+            }
+            if (distance < 0) {
+              nextSlide();
+            } else {
+              showSlide(currentSlide - 1);
+            }
+            resetAutoplay();
+          },
+          { passive: true },
+        );
+
+        showSlide(0);
+        startAutoplay();
+      }
+
+      document.querySelectorAll(".carousel").forEach(setupCarousel);
+
+      function setupSwipePager(wrapper) {
+        const cards = wrapper.querySelectorAll(".cert-item");
+        const firstCard = cards[0];
+        if (!firstCard) {
+          return;
+        }
+
+        const track = wrapper.querySelector(".results-track");
+        const trackStyles = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || "0");
+        const step = firstCard.offsetWidth + gap;
+
+        let isPointerDown = false;
+        let pointerId = null;
+        let startX = 0;
+        let deltaX = 0;
+        let startScrollLeft = 0;
+        let rafId = null;
+
+        const maxIndex = () =>
+          Math.max(0, wrapper.querySelectorAll(".cert-item").length - 1);
+        let lastActiveIndex = -1;
+
+        function nearestIndex(scrollLeft) {
+          return Math.round(scrollLeft / step);
+        }
+
+        function goToIndex(index) {
+          const target = Math.max(0, Math.min(index, maxIndex()));
+          animateTo(target * step, 420);
+        }
+
+        function animateTo(targetLeft, duration) {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+          }
+          const startLeft = wrapper.scrollLeft;
+          const distance = targetLeft - startLeft;
+          const startTime = performance.now();
+
+          function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+          }
+
+          function frame(now) {
+            const progress = Math.min(1, (now - startTime) / duration);
+            wrapper.scrollLeft = startLeft + distance * easeOutCubic(progress);
+            if (progress < 1) {
+              rafId = requestAnimationFrame(frame);
+            } else {
+              rafId = null;
+            }
+          }
+
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function updateActiveCard() {
+          const index = nearestIndex(wrapper.scrollLeft);
+          cards.forEach((card, i) => {
+            const isActive = i === index;
+            card.classList.toggle("is-active", isActive);
+            if (isActive && index !== lastActiveIndex) {
+              card.classList.remove("pop-in");
+              void card.offsetWidth;
+              card.classList.add("pop-in");
+            }
+          });
+          lastActiveIndex = index;
+        }
+
+        wrapper.addEventListener("pointerdown", (event) => {
+          if (event.button !== 0) {
+            return;
+          }
+          isPointerDown = true;
+          pointerId = event.pointerId;
+          startX = event.clientX;
+          deltaX = 0;
+          startScrollLeft = wrapper.scrollLeft;
+          wrapper.classList.add("dragging");
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+          wrapper.setPointerCapture(pointerId);
+        });
+
+        wrapper.addEventListener("pointermove", (event) => {
+          if (!isPointerDown || event.pointerId !== pointerId) {
+            return;
+          }
+          deltaX = event.clientX - startX;
+          wrapper.scrollLeft = startScrollLeft - deltaX;
+          const clampedShift = Math.max(-90, Math.min(90, deltaX));
+          wrapper.style.setProperty("--swipe-shift", `${clampedShift}px`);
+          updateActiveCard();
+        });
+
+        function finishSwipe(event) {
+          if (!isPointerDown || event.pointerId !== pointerId) {
+            return;
+          }
+          isPointerDown = false;
+          wrapper.classList.remove("dragging");
+          wrapper.releasePointerCapture(pointerId);
+
+          const threshold = Math.min(120, step * 0.22);
+          const startIndex = nearestIndex(startScrollLeft);
+
+          if (Math.abs(deltaX) > threshold) {
+            if (deltaX < 0) {
+              goToIndex(startIndex + 1);
+            } else {
+              goToIndex(startIndex - 1);
+            }
+          } else {
+            goToIndex(nearestIndex(wrapper.scrollLeft));
+          }
+          wrapper.style.setProperty("--swipe-shift", "0px");
+        }
+
+        wrapper.addEventListener("pointerup", finishSwipe);
+        wrapper.addEventListener("pointercancel", finishSwipe);
+        wrapper.addEventListener("contextmenu", (event) =>
+          event.preventDefault(),
+        );
+        wrapper.addEventListener("scroll", updateActiveCard, { passive: true });
+        updateActiveCard();
+      }
+
+      document.querySelectorAll(".results-wrap").forEach(setupSwipePager);
+    </script>
+  </body>
+</html>
